@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Weather Home</title></head>
+<body>
+<h2>Welcome {{ user.username }}!</h2>
+
+<form method="GET">
+    <input name="city" placeholder="Enter city" required>
+    <button type="submit">Get Weather</button>
+</form>
+
+{% if weather %}
+    <h3>Weather in {{ weather.name }}</h3>
+    <p>Temperature: {{ weather.main.temp }}°C</p>
+    <p>Description: {{ weather.weather.0.description }}</p>
+{% elif error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+
+<a href="/logout/">Logout</a>
+</body>
+</html>
